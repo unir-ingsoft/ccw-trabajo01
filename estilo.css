@@ -183,3 +183,12 @@ button:hover {
 .login-btn:hover {
     background: #333333;
 }
+
+.text-center {text-align: center;}
+.p-t-136 {padding-top: 136px;}
+.txt2 {
+    font-family: Poppins-Regular;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666666;
+  }

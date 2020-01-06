@@ -6,11 +6,9 @@
         $jsonUsuarios = json_decode($db, true);
 
         foreach ($jsonUsuarios as $userdata) {
-            if ($userdata['password'] == $pwd && $userdata['password'] == $usr){
-                return true;
-            }
-            else {
-                return false;
+            if ($userdata['password'] == $pwd && $userdata['email'] == $usr){
+                $_SESSION['nombre'] = $userdata['nombre'];
+                return 1;
             }
         }
     }
@@ -26,10 +24,10 @@
             $usrsEncoded = json_encode($usrsDecoded);
             $file = 'db.json';
             file_put_contents($file, $usrsEncoded);
-            return true;
+            return 1;
         }
         catch(Exception $e){
-            return false;
+            return 0;
         }
     }
 
@@ -37,19 +35,21 @@
 
         if($_REQUEST['action'] == "login"){
 
-            $result = false;
+            $result = 0;
             $usuario = $_REQUEST['email'];
             $password = sha1($_REQUEST['pass']);
 
             $result = getUsuarios($usuario, $password);
 
-            if ($result){
-                echo "<script>alert('Acceso correcto')</script>";
+            echo $result;
+
+            if ($result === 1){
                 $_SESSION['logged'] = "ok";
+                header("Location: perfil.html");
             }
             else {
-                echo"<script>alert('Datos incorrectos')</script>";
-                header("Location: index.html");
+                echo "<script>alert('Datos incorrectos'),; window.location.href='index.html';</script>";
+                //header("Location: index.html");
             }
         }
         else if ($_REQUEST['action'] == "registrar"){
@@ -57,21 +57,24 @@
             $usuario = $_REQUEST['email'];
             $nombre = $_REQUEST['nombre'];
             $password = sha1($_REQUEST['pass']);
-            $result = getUsuarios($usuario, $password);
+            $result = addUsuarios($usuario, $password, $nombre);
 
             if ($result){
-                echo "<script>alert('Registrado exitosamente')</script>";
-                header("Location: index.html");
+                echo "<script>alert('Registrado exitosamente'); window.location.href='index.html';</script>";
+                //header("Location: index.html");
                 
             }
             else {
-                echo"<script>alert('Ocurrio un error, intentelo de nuevo')</script>";
-                header("Location: registro.html");
+                echo "<script>alert('Ocurrio un error, intentelo de nuevo');window.location.href='registro.html';</script>";
+                //header("Location: registro.html");
             }
         }
         
     }
     else if (!$_SESSION['logged']){
         header("Location: index.html");
+    }
+    else {
+        header("Location: perfil.html");
     }
 ?>

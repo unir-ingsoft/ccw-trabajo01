@@ -13,7 +13,11 @@
                         <img src="img-01.png">
                     </div>
                     <form action="controller.php" method="POST" class="login-form validate-form">
-                        <span class="titulo">Iniciar Sesión</span>
+                        <span class="titulo">Registrarse</span>
+
+                        <div class="wrapper-inputs validate-input" data-validate = "El nombre es obligatorio">
+                            <input class="input" type="text" name="nombre" placeholder="Nombre">
+                        </div>
     
                         <div class="wrapper-inputs validate-input" data-validate = "Correo inválido">
                             <input class="input" type="text" name="email" placeholder="Email">
@@ -23,10 +27,10 @@
                             <input class="input" type="password" name="pass" placeholder="Password">
                         </div>
 
-                        <input type="hidden" name="action" value="login" />
+                        <input type="hidden" name="action" value="registrar" />
                     
                         <div class="container-login-btn">
-                            <button class="login-btn">Entrar</button>
+                            <button class="login-btn">Enviar</button>
                         </div>
                     </form>
                 </div>
