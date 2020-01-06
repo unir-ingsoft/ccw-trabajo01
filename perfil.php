@@ -1,3 +1,9 @@
+<?php
+   session_start();
+   if (!$_SESSION['logged']){
+      header("Location: index.html");
+   }
+?>
 <html>
     <head>
         <title>Desarrollo web avanzado</title>
@@ -10,7 +16,14 @@
             <div class="login-general">
                 <div class="login-screen">
                     <form action="controller.php" method="POST" class="login-form validate-form">
-                        <span class="titulo">BIENVENIDO</span>
+                        <span class="titulo">BIENVENIDO, <?php echo $_SESSION['nombre']; ?></span>
+
+                        <div class="text-center p-t-136">
+                           <a class="txt2" href="controller.php?action=ex">
+                              Salir
+                              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                           </a>
+                        </div>
                     </form>
                 </div>
             </div>

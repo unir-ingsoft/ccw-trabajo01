@@ -37,7 +37,7 @@
 
             $result = 0;
             $usuario = $_REQUEST['email'];
-            $password = sha1($_REQUEST['pass']);
+            $password = sha1(trim($_REQUEST['pass'], " "));
 
             $result = getUsuarios($usuario, $password);
 
@@ -45,7 +45,7 @@
 
             if ($result === 1){
                 $_SESSION['logged'] = "ok";
-                header("Location: perfil.html");
+                header("Location: perfil.php");
             }
             else {
                 echo "<script>alert('Datos incorrectos'); window.location.href='index.html';</script>";
@@ -56,7 +56,7 @@
             $result = false;
             $usuario = $_REQUEST['email'];
             $nombre = $_REQUEST['nombre'];
-            $password = sha1($_REQUEST['pass']);
+            $password = sha1(trim($_REQUEST['pass'], " "));
             $result = addUsuarios($usuario, $password, $nombre);
 
             if ($result){
@@ -68,13 +68,17 @@
                 echo "<script>alert('Ocurrio un error, intentelo de nuevo');window.location.href='registro.html';</script>";
                 //header("Location: registro.html");
             }
-        }
+         }
+         else if ($_REQUEST['action'] == "ex") {
+            session_destroy();
+            header("Location: index.html");
+         }
         
     }
     else if (!$_SESSION['logged']){
         header("Location: index.html");
     }
     else {
-        header("Location: perfil.html");
+        header("Location: perfil.php");
     }
 ?>
