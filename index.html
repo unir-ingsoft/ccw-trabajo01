@@ -1,18 +1,38 @@
 <html>
    <head>
       <title>Desarrollo web avanzado</title>
-      <style src="estilo.css"></style>
+      <meta charset="UTF-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="estilo.css">
    </head>
    <body>
-      <h3>Iniciar Sesion</h3>
-      <form action="controller.php">
-         Nombre de usuario:
-         <input type="text" required/>
-
-         Contraseña: 
-         <input type="password" required/>
-
-         <input type="submit">
-      </form>
+      <div class="contenedor">
+         <div class="login-general">
+            <div class="login-screen">
+               <div class="login100-pic js-tilt" data-tilt>
+                  <img src="img-01.png">
+               </div>
+               <form action="controller.php" method="POST" class="login-form validate-form">
+                  <span class="titulo">
+                     Iniciar Sesión
+                  </span>
+   
+                  <div class="wrapper-inputs validate-input" data-validate = "Correo inválido">
+                     <input class="input" type="text" name="email" placeholder="Email">
+                  </div>
+   
+                  <div class="wrapper-inputs validate-input" data-validate = "La contraseña es requerida">
+                     <input class="input" type="password" name="pass" placeholder="Password">
+                  </div>
+                  
+                  <div class="container-login-btn">
+                     <button class="login-btn">
+                        Entrar
+                     </button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
    </body>
 </html>
