@@ -18,13 +18,15 @@
                   </span>
    
                   <div class="wrapper-inputs validate-input" data-validate = "Correo inválido">
-                     <input class="input" type="text" name="email" placeholder="Email">
+                     <input class="input" type="text" name="email" placeholder="Email" required>
                   </div>
    
                   <div class="wrapper-inputs validate-input" data-validate = "La contraseña es requerida">
-                     <input class="input" type="password" name="pass" placeholder="Password">
+                     <input class="input" type="password" name="pass" placeholder="Password" requireds>
                   </div>
-                  
+
+                  <input type="hidden" name="action" value="login" />
+
                   <div class="container-login-btn">
                      <button class="login-btn">
                         Entrar
