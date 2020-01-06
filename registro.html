@@ -16,15 +16,15 @@
                         <span class="titulo">Registrarse</span>
 
                         <div class="wrapper-inputs validate-input" data-validate = "El nombre es obligatorio">
-                            <input class="input" type="text" name="nombre" placeholder="Nombre">
+                            <input class="input" type="text" name="nombre" placeholder="Nombre" required>
                         </div>
     
-                        <div class="wrapper-inputs validate-input" data-validate = "Correo inválido">
-                            <input class="input" type="text" name="email" placeholder="Email">
+                        <div class="wrapper-inputs validate-input" data-validate = "Correo inválido" required>
+                            <input class="input" type="email" name="email" placeholder="Email">
                         </div>
     
                         <div class="wrapper-inputs validate-input" data-validate = "La contraseña es requerida">
-                            <input class="input" type="password" name="pass" placeholder="Password">
+                            <input class="input" type="password" name="pass" placeholder="Password" required>
                         </div>
 
                         <input type="hidden" name="action" value="registrar" />

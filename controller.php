@@ -48,7 +48,7 @@
                 header("Location: perfil.html");
             }
             else {
-                echo "<script>alert('Datos incorrectos'),; window.location.href='index.html';</script>";
+                echo "<script>alert('Datos incorrectos'); window.location.href='index.html';</script>";
                 //header("Location: index.html");
             }
         }
